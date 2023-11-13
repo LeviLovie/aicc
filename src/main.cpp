@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../hdr/board.hpp"
+#include "board/board.hpp"
 
 int main(int, char**) {
     Board::BoardData* board = new Board::BoardData(10, 10);

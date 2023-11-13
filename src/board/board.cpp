@@ -1,4 +1,4 @@
-#include "../hdr/board.hpp"
+#include "board.hpp"
 
 #include <iostream>
 #include <vector>
@@ -26,6 +26,7 @@ namespace Board {
   vector<vector<short> > BoardData::GetData() {
     return data;
   }
+
 
   short BoardData::GetDataIndex(short iy, short ix) {
     return data[iy][ix];
