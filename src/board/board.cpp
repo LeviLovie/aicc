@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <random>
 using namespace std;
 
 namespace Board {
@@ -86,6 +87,18 @@ namespace Board {
 
     for (short ix = 0; ix < static_cast<short>(indata.size()); ix++)
       data[i][ix] = indata[ix];
+  }
+
+  void BoardData::RandomSet(short setto, float chance) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<float> dis(0.0f, 1.0f);
+
+    for (short iy = 0; iy < static_cast<short>(GetDataColomn(0).size()); iy++) {
+      for (short ix = 0; ix < static_cast<short>(GetDataRow(0).size()); ix++) {
+        if (dis(gen) <= chance) data[iy][ix] = setto;
+      }
+    }
   }
 
 
