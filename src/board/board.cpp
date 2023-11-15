@@ -30,6 +30,15 @@ namespace Board {
 
 
   short BoardData::GetDataIndex(short iy, short ix) {
+    if (iy > static_cast<short>(GetDataColomn(0).size())) {
+      cout << "BoardDataSetIndex: Y index is bigger then BoardData size" << endl;
+      exit(1);
+    }
+    if (ix > static_cast<short>(GetDataRow(0).size())) {
+      cout << "BoardDataSetIndex: X index is bigger then BoardData size" << endl;
+      exit(1);
+    }
+    
     return data[iy][ix];
   }
 
