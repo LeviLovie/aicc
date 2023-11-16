@@ -5,6 +5,7 @@
 using namespace std;
 
 #define RESET_COLOR "\x1b[0m"
+#define ALPHABET "abcdefghijklmnopqrstuvwxyz"
 
 namespace GFX {
     class GraphicsStyle {
@@ -23,7 +24,7 @@ namespace GFX {
         GraphicsStyle();
     };
 
-    void DrawBoard(Board::BoardData* board, GFX::GraphicsStyle* style);
+    void DrawBoard(Board::BoardData* board, GFX::GraphicsStyle* style, int cursorY, int cursorX);
 }
 
 #endif // GFX_HPP_

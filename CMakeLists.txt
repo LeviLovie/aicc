@@ -20,7 +20,7 @@ FetchContent_Declare(googletest GIT_REPOSITORY https://github.com/google/googlet
 FetchContent_MakeAvailable(googletest)
 file(GLOB TESTS tests/*.cpp)
 add_executable(tests ${TESTS})
-target_link_libraries(tests gtest_main board)
+target_link_libraries(tests gtest_main board gfx)
 include(GoogleTest)
 gtest_discover_tests(tests)
 

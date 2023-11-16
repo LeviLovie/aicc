@@ -45,8 +45,3 @@ TEST(Board, GetDataColomn) {
     data = {3, 13, 23, 33, 43, 53, 72, 73, 83, 93};
     ASSERT_EQ(board->GetDataColomn(2), data);
 }
-
-int main(int argc, char** argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

@@ -4,8 +4,6 @@
 #include "../board/board.hpp"
 using namespace std;
 
-#define alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
 namespace GFX {
     GraphicsStyle::GraphicsStyle() {
         FreeCell = '.';
@@ -20,10 +18,10 @@ namespace GFX {
         OurColor = "\x1b[32m";
     }
 
-    void DrawBoard(Board::BoardData* board, GFX::GraphicsStyle* style) {
+    void DrawBoard(Board::BoardData* board, GFX::GraphicsStyle* style, int cursorY, int cursorX) {
         cout << "   ";
         for (int iy = 0; iy < static_cast<int>(board->GetDataColomn(0).size()); iy++)
-            cout << alphabet[iy];
+            cout << ALPHABET[iy];
         cout << "\n";
 
         cout << "  +";
@@ -38,6 +36,9 @@ namespace GFX {
             cout << yIndex << "|";
 
             for (int ix = 0; ix < static_cast<int>(board->GetDataColomn(0).size()); ix++) {
+                bool isCursor = false;
+                if (ix == cursorX && iy == cursorY) isCursor = true;
+
                 short cell = board->GetDataIndex(iy, ix);
                 if (cell == FREE_CELL_INDEX) {
                     int result = 0;
@@ -172,14 +173,23 @@ namespace GFX {
 
                     switch (result) {
                     case 0:
-                        cout << style->FreeColor << style->FreeCell << RESET_COLOR;
+                        if (!isCursor)
+                            cout << style->FreeColor << style->FreeCell << RESET_COLOR;
+                        else
+                            cout << "\x1b[47m" << style->FreeCell << RESET_COLOR;
                         break;
                     case 1:
-                        cout << style->MustPutColor << style->MustPutCell << RESET_COLOR;
+                        if (!isCursor)
+                            cout << style->MustPutColor << style->MustPutCell << RESET_COLOR;
+                        else
+                            cout << "\x1b[47m" << style->MustPutCell << RESET_COLOR;
                         break;
                     }
                 } else if (cell == OUR_CELL_INDEX) {
-                    cout << style->OurColor << style->OurCell << RESET_COLOR;
+                    if (!isCursor)
+                        cout << style->OurColor << style->OurCell << RESET_COLOR;
+                    else
+                        cout << "\x1b[47m" << style->OurCell << RESET_COLOR;
                 } else if (cell == THEIR_CELL_INDEX) {
                     int result = 0;
 
@@ -361,13 +371,22 @@ namespace GFX {
 
                     switch (result) {
                     case 0:
-                        cout << style->TheirColor << style->TheirCell << RESET_COLOR;
+                        if (!isCursor)
+                            cout << style->TheirColor << style->TheirCell << RESET_COLOR;
+                        else
+                            cout << "\x1b[47m" << style->TheirCell << RESET_COLOR;
                         break;
                     case 1:
-                        cout << style->TheirThreeColor << style->TheirCell << RESET_COLOR;
+                        if (!isCursor)
+                            cout << style->TheirThreeColor << style->TheirCell << RESET_COLOR;
+                        else
+                            cout << "\x1b[47m" << style->TheirCell << RESET_COLOR;
                         break;
                     case 2:
-                        cout << style->TheirFourColor << style->TheirCell << RESET_COLOR;
+                        if (!isCursor)
+                            cout << style->TheirFourColor << style->TheirCell << RESET_COLOR;
+                        else
+                            cout << "\x1b[47m" << style->TheirCell << RESET_COLOR;
                         break;
                     }
                 }
