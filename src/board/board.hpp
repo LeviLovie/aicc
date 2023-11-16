@@ -30,6 +30,10 @@ namespace Board {
 
     // Random
     void RandomSet(short setto, float chance);
+
+    // Backups
+    void BackupSave(string name);
+    void BackupLoad(string name);
   };
 
   void DebugBoardDataIndex(BoardData* data, short iy, short ix);

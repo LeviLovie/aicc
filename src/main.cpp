@@ -90,6 +90,17 @@ int applyCommnads(vector<string> tokens, int incounter, Board::BoardData* board,
         } else {
             cout << "\x1b[33m" << "Cell is filled" << RESET_COLOR;
         }
+    } else if (tokens[0] == "backup") {
+        if (tokens.size() != 3)
+            cout << "\x1b[33m" << "Usage: backup save|load <name>" << RESET_COLOR;
+        else {
+            if (tokens[1] == "save")
+                board->BackupSave(tokens[2]);
+            if (tokens[1] == "load")
+                board->BackupLoad(tokens[2]);
+            else
+                cout << "\x1b[33m" << "Usage: backup save|load <name>" << RESET_COLOR;
+        }
     } else if (tokens[0] == "ret") {
         return counter;
     } else {
