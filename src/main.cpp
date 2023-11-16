@@ -101,7 +101,6 @@ int applyCommnads(vector<string> tokens, int incounter, Board::BoardData* board,
 int main(int, char**) {
     Board::BoardData* board = new Board::BoardData(16, 16);
     GFX::GraphicsStyle* style = new GFX::GraphicsStyle();
-    // board->RandomSet(2, 0.5);
 
     int counter = 0;
     int cursorY = 0, cursorX = 0;

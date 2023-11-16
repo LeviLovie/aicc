@@ -50,11 +50,10 @@ namespace GFX {
                         board->GetDataIndex(iy, ix + 3) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy, ix + 4) == FREE_CELL_INDEX
                         ||
-                        ix >= 4 &&
+                        ix >= 3 &&
                         board->GetDataIndex(iy, ix - 1) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy, ix - 2) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy, ix - 3) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy, ix - 4) == FREE_CELL_INDEX || board->GetDataIndex(iy, ix - 4) == OUR_CELL_INDEX)
+                        board->GetDataIndex(iy, ix - 3) == THEIR_CELL_INDEX
 
                         ||
 
@@ -64,11 +63,10 @@ namespace GFX {
                         board->GetDataIndex(iy + 3, ix) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy + 4, ix) == FREE_CELL_INDEX
                         ||
-                        iy >= 4 &&
+                        iy >= 3 &&
                         board->GetDataIndex(iy - 1, ix) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy - 2, ix) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy - 3, ix) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy - 4, ix) == FREE_CELL_INDEX || board->GetDataIndex(iy - 4, ix) == OUR_CELL_INDEX)
+                        board->GetDataIndex(iy - 3, ix) == THEIR_CELL_INDEX
 
                         ||
 
@@ -79,28 +77,26 @@ namespace GFX {
                         board->GetDataIndex(iy - 3, ix - 3) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy - 4, ix - 4) == FREE_CELL_INDEX
                         ||
-                        ix < static_cast<int>(board->GetDataColomn(0).size() - 4) &&
-                        iy < static_cast<int>(board->GetDataRow(0).size() - 4) &&
+                        ix < static_cast<int>(board->GetDataColomn(0).size() - 3) &&
+                        iy < static_cast<int>(board->GetDataRow(0).size() - 3) &&
                         board->GetDataIndex(iy + 1, ix + 1) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy + 2, ix + 2) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 3, ix + 3) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy + 4, ix + 4) == FREE_CELL_INDEX || board->GetDataIndex(iy + 4, ix + 4) == OUR_CELL_INDEX)
+                        board->GetDataIndex(iy + 3, ix + 3) == THEIR_CELL_INDEX
 
                         ||
 
                         ix < static_cast<int>(board->GetDataColomn(0).size() - 4) &&
                         iy < static_cast<int>(board->GetDataRow(0).size() - 4) &&
-                        board->GetDataIndex(iy + 1, ix + 1) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 2, ix + 2) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 3, ix + 3) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 4, ix + 4) == FREE_CELL_INDEX
+                        board->GetDataIndex(iy + 1, ix - 1) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy + 2, ix - 2) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy + 3, ix - 3) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy + 4, ix - 4) == FREE_CELL_INDEX
                         ||
-                        ix >= 4 &&
-                        iy >= 4 &&
-                        board->GetDataIndex(iy - 1, ix - 1) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy - 2, ix - 2) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy - 3, ix - 3) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy - 4, ix - 4) == FREE_CELL_INDEX || board->GetDataIndex(iy - 4, ix - 4) == OUR_CELL_INDEX)
+                        ix >= 3 &&
+                        iy >= 3 &&
+                        board->GetDataIndex(iy - 1, ix + 1) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy - 2, ix + 2) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy - 3, ix + 3) == THEIR_CELL_INDEX
 
                         ||
                         
@@ -111,12 +107,11 @@ namespace GFX {
                         board->GetDataIndex(iy, ix + 4) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy, ix + 5) == FREE_CELL_INDEX
                         ||
-                        ix >= 5 &&
+                        ix >= 4 &&
                         board->GetDataIndex(iy, ix - 1) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy, ix - 2) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy, ix - 3) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy, ix - 4) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy, ix - 5) == FREE_CELL_INDEX || board->GetDataIndex(iy, ix - 5) == OUR_CELL_INDEX)
+                        board->GetDataIndex(iy, ix - 4) == THEIR_CELL_INDEX
 
                         ||
                         
@@ -124,15 +119,13 @@ namespace GFX {
                         board->GetDataIndex(iy + 1, ix) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy + 2, ix) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy + 3, ix) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 4, ix) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy + 5, ix) == FREE_CELL_INDEX || board->GetDataIndex(iy + 5, ix) == OUR_CELL_INDEX)
+                        board->GetDataIndex(iy + 4, ix) == THEIR_CELL_INDEX
                         ||
-                        iy >= 5 &&
+                        iy >= 4 &&
                         board->GetDataIndex(iy - 1, ix) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy - 2, ix) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy - 3, ix) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy - 4, ix) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy - 5, ix) == FREE_CELL_INDEX || board->GetDataIndex(iy - 5, ix) == OUR_CELL_INDEX)
+                        board->GetDataIndex(iy - 4, ix) == THEIR_CELL_INDEX
 
                         ||
                         
@@ -141,34 +134,30 @@ namespace GFX {
                         board->GetDataIndex(iy + 1, ix + 1) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy + 2, ix + 2) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy + 3, ix + 3) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 4, ix + 4) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy + 5, ix + 5) == FREE_CELL_INDEX || board->GetDataIndex(iy + 5, ix + 5) == OUR_CELL_INDEX)
+                        board->GetDataIndex(iy + 4, ix + 4) == THEIR_CELL_INDEX
                         ||
-                        iy >= 5 &&
-                        ix >= 5 &&
+                        iy >= 4 &&
+                        ix >= 4 &&
                         board->GetDataIndex(iy - 1, ix - 1) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy - 2, ix - 2) == THEIR_CELL_INDEX &&
                         board->GetDataIndex(iy - 3, ix - 3) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy - 4, ix - 4) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy - 5, ix - 5) == FREE_CELL_INDEX || board->GetDataIndex(iy - 5, ix - 5) == OUR_CELL_INDEX)
+                        board->GetDataIndex(iy - 4, ix - 4) == THEIR_CELL_INDEX
 
                         ||
 
-                        iy >= 5 &&
-                        ix >= 5 &&
-                        board->GetDataIndex(iy - 1, ix - 1) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy - 2, ix - 2) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy - 3, ix - 3) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy - 4, ix - 4) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy - 5, ix - 5) == FREE_CELL_INDEX || board->GetDataIndex(iy - 5, ix - 5) == OUR_CELL_INDEX)
-                        ||                        
-                        iy < static_cast<int>(board->GetDataRow(0).size() - 5) &&
-                        ix < static_cast<int>(board->GetDataColomn(0).size() - 5) &&
-                        board->GetDataIndex(iy + 1, ix + 1) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 2, ix + 2) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 3, ix + 3) == THEIR_CELL_INDEX &&
-                        board->GetDataIndex(iy + 4, ix + 4) == THEIR_CELL_INDEX &&
-                        (board->GetDataIndex(iy + 5, ix + 5) == FREE_CELL_INDEX || board->GetDataIndex(iy + 5, ix + 5) == OUR_CELL_INDEX)
+                        iy >= 4 &&
+                        ix >= 4 &&
+                        board->GetDataIndex(iy - 1, ix + 1) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy - 2, ix + 2) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy - 3, ix + 3) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy - 4, ix + 4) == THEIR_CELL_INDEX
+                        ||
+                        iy < static_cast<int>(board->GetDataRow(0).size() - 4) &&
+                        ix < static_cast<int>(board->GetDataColomn(0).size() - 4) &&
+                        board->GetDataIndex(iy + 1, ix - 1) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy + 2, ix - 2) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy + 3, ix - 3) == THEIR_CELL_INDEX &&
+                        board->GetDataIndex(iy + 4, ix - 4) == THEIR_CELL_INDEX
                     ) result = 1;
 
                     switch (result) {
