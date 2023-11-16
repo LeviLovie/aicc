@@ -1,8 +1,11 @@
 #ifndef BOARD_HPP_
 #define BOARD_HPP_
-
 #include <vector>
 using namespace std;
+
+#define FREE_CELL_INDEX 0
+#define OUR_CELL_INDEX 1
+#define THEIR_CELL_INDEX 2
 
 namespace Board {
   class BoardData {
@@ -24,6 +27,13 @@ namespace Board {
     void SetIndex(short iy, short ix, short data);
     void SetRow(short i, vector<short> data);
     void SetColomn(short i, vector<short> data);
+
+    // Random
+    void RandomSet(short setto, float chance);
+
+    // Backups
+    void BackupSave(string name);
+    void BackupLoad(string name);
   };
 
   void DebugBoardDataIndex(BoardData* data, short iy, short ix);

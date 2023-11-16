@@ -4,6 +4,9 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <random>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 namespace Board {
@@ -29,6 +32,15 @@ namespace Board {
 
 
   short BoardData::GetDataIndex(short iy, short ix) {
+    if (iy > static_cast<short>(GetDataColomn(0).size())) {
+      cout << "BoardDataSetIndex: Y index is bigger then BoardData size" << endl;
+      exit(1);
+    }
+    if (ix > static_cast<short>(GetDataRow(0).size())) {
+      cout << "BoardDataSetIndex: X index is bigger then BoardData size" << endl;
+      exit(1);
+    }
+    
     return data[iy][ix];
   }
 
@@ -86,6 +98,74 @@ namespace Board {
 
     for (short ix = 0; ix < static_cast<short>(indata.size()); ix++)
       data[i][ix] = indata[ix];
+  }
+
+  void BoardData::RandomSet(short setto, float chance) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<float> dis(0.0f, 1.0f);
+
+    for (short iy = 0; iy < static_cast<short>(GetDataColomn(0).size()); iy++) {
+      for (short ix = 0; ix < static_cast<short>(GetDataRow(0).size()); ix++) {
+        if (dis(gen) <= chance) data[iy][ix] = setto;
+      }
+    }
+  }
+
+  void BoardData::BackupSave(string name) {
+    string backupData = "";
+
+    for (short iy = 0; iy < static_cast<short>(GetDataColomn(0).size()); iy++) {
+      for (short ix = 0; ix < static_cast<short>(GetDataRow(0).size()); ix++) {
+        backupData += to_string(GetDataIndex(iy, ix));
+        if (ix != static_cast<short>(GetDataRow(0).size()) - 1)
+          backupData += ",";
+      }
+      backupData += ";";
+    }
+
+    std::ofstream outputFile(name + ".backup.aicc");
+    if (outputFile.is_open()) {
+      outputFile << backupData;
+      outputFile.close();
+    } else {
+      std::cerr << "Unable to open the file" << std::endl;
+    }
+
+    cout << "Backup made!";
+  }
+
+  vector<string> splitString(const string& str, char delim) {
+    vector<string> strings;
+    size_t start;
+    size_t end = 0;
+    while ((start = str.find_first_not_of(delim, end)) != string::npos) {
+        end = str.find(delim, start);
+        strings.push_back(str.substr(start, end - start));
+    }
+    return strings;
+  }
+  
+  void BoardData::BackupLoad(string name) {
+    string backupData = "";
+    std::ifstream inputFile(name + ".backup.aicc");
+    if (inputFile.is_open()) {
+      std::stringstream buffer;
+      buffer << inputFile.rdbuf();
+      backupData = buffer.str();
+      inputFile.close();
+    } else {
+      std::cerr << "Unable to open the file" << std::endl;
+    }
+
+    vector<string> rows = splitString(backupData, ';');
+    for (int iy = 0; iy < rows.size(); iy++) {
+      vector<string> indexes = splitString(rows[iy], ',');
+      for (int ix = 0; ix < indexes.size(); ix++)
+        SetIndex(iy, ix, stoi(indexes[ix]));
+    }
+
+    cout << "backup loaded!";
   }
 
 
