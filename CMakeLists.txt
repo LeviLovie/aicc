@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8.0)
-project(aicc VERSION 0.0.1 LANGUAGES C CXX)
+project(aicc VERSION 0.1.0 LANGUAGES C CXX)
 enable_testing()
 
 # Board lib
