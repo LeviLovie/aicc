@@ -1,2 +1,4 @@
 _deps
 build
+*.backup.aicc
+.DS_Store
