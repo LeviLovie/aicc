@@ -151,10 +151,8 @@ int main(int, char**) {
     int cursorY = 0, cursorX = 0;
     GFX::DrawBoard(board, style, cursorY, cursorX);
     while (true) {
-        int key = getkey();
-        if (key != -1) {
-            GFX::DrawBoard(board, style, cursorY, cursorX);
-        }
+        int key = getch();
+        GFX::DrawBoard(board, style, cursorY, cursorX);
         cout << "Key pressed: " << key << endl;
     }
 }

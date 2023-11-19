@@ -7,8 +7,8 @@ using namespace std;
 namespace GFX {
     GraphicsStyle::GraphicsStyle() {
         FreeCell = '.';
-        OurCell = '#';
-        TheirCell = '#';
+        OurCell = 'X';
+        TheirCell = 'O';
         MustPutCell = '!';
         FreeColor = "\x1b[37m";
         TheirColor = "\x1b[34m";
